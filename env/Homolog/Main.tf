@@ -7,6 +7,13 @@ module "homolog" {
     imagem="leonardosartorello/go_ci:22"
 }
 
-output "IP_alb" {
-  value = module.homolog.IP
+module "prod" {
+    source = "../../infra"
+
+    cluster_name = "homolog2"
+}
+
+
+output "IP_db" {
+  value = module.prod.IP
 }
